@@ -26,6 +26,7 @@ function Out-MemoryMappedFile
 	[Parameter(ValueFromPipeline=$true, Mandatory)]
 	[String]$String)
 
+	# Erstellt einen Stream, der einer Ansicht der Speicherabbilddatei zugeordnet ist.
 	$Stream = $MemoryMappedFile.CreateViewStream()
 
 	$StreamWriter = New-Object System.IO.StreamWriter -ArgumentList $Stream
