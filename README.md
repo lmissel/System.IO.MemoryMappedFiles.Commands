@@ -1,0 +1,2 @@
+# System.IO.MemoryMappedFiles.Commands
+Dieses PowerShell Module stellt Funktionen für sogenannte Speicherabbilddateien zur Verfügung. Speicherabbilddateien ermöglichen Programmierern, mit sehr großen Dateien arbeiten, da Speicher gleichzeitig verwaltet werden kann, und sie ermöglichen die vollständige, wahlfreien Zugriff auf eine Datei ohne die Notwendigkeit der gesucht werden soll. Speicherabbilddateien können auch für mehrere Prozesse verwendet werden.
