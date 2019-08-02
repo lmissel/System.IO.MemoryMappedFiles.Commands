@@ -1,20 +1,161 @@
 function New-MemoryMappedFile
 {
-	[CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName='Default', 
+                  SupportsShouldProcess=$true, 
+                  PositionalBinding=$false,
+                  HelpUri = 'https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/',
+                  ConfirmImpact='Medium')]
+    [Alias()]
+    [OutputType([System.IO.MemoryMappedFiles.MemoryMappedFile])]
 	param(
-	[Parameter(Mandatory)]
-	[String]$Name, 
-	[Parameter()]
-	[Int64]$Size)
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='Default')]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='MemoryMappedFileAccess')]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='MemoryMappedFileOptions')]
+        [ValidateNotNull()]
+        [ValidateNotNullOrEmpty()]
+	    [String]$Name,
 
-	[System.IO.MemoryMappedFiles.MemoryMappedFile]::CreateNew($Name, $Size);
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=1,
+                   ParameterSetName='Default')]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=1,
+                   ParameterSetName='MemoryMappedFileAccess')]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=1,
+                   ParameterSetName='MemoryMappedFileOptions')]
+        [ValidateNotNull()]
+        [ValidateNotNullOrEmpty()]
+	    [Int64]$Size,
+
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=2,
+                   ParameterSetName='MemoryMappedFileAccess')]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=2,
+                   ParameterSetName='MemoryMappedFileOptions')]
+        [ValidateNotNull()]
+        [ValidateNotNullOrEmpty()]
+        [System.IO.MemoryMappedFiles.MemoryMappedFileAccess] $MemoryMappedFileAccess,
+
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=3,
+                   ParameterSetName='MemoryMappedFileOptions')]
+        [ValidateNotNull()]
+        [ValidateNotNullOrEmpty()]
+        [System.IO.MemoryMappedFiles.MemoryMappedFileOptions] $MemoryMappedFileOptions,
+
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=4,
+                   ParameterSetName='MemoryMappedFileOptions')]
+        [ValidateNotNull()]
+        [ValidateNotNullOrEmpty()]
+        [System.IO.HandleInheritability] $HandleInheritability
+    )
+
+    if ($PSCmdlet.ParameterSetName -eq "Default") {	[System.IO.MemoryMappedFiles.MemoryMappedFile]::CreateNew($Name, $Size); }
+    if ($PSCmdlet.ParameterSetName -eq "MemoryMappedFileAccess") {	[System.IO.MemoryMappedFiles.MemoryMappedFile]::CreateNew($Name, $Size, $MemoryMappedFileAccess); }
+    if ($PSCmdlet.ParameterSetName -eq "MemoryMappedFileOptions") {	[System.IO.MemoryMappedFiles.MemoryMappedFile]::CreateNew($Name, $Size, $MemoryMappedFileAccess, $MemoryMappedFileOptions, $HandleInheritability); }
 }
 
 function Open-MemoryMappedFile
 {
-	param([String]$Name)
+    [CmdletBinding(DefaultParameterSetName='Default', 
+                  SupportsShouldProcess=$true, 
+                  PositionalBinding=$false,
+                  HelpUri = 'https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/',
+                  ConfirmImpact='Medium')]
+    [Alias()]
+    [OutputType([System.IO.MemoryMappedFiles.MemoryMappedFile])]
+	param(
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='Default')]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='MemoryMappedFileRights')]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='HandleInheritability')]
+        [ValidateNotNull()]
+        [ValidateNotNullOrEmpty()]
+	    [String]$Name,
 
-	[System.IO.MemoryMappedFiles.MemoryMappedFile]::OpenExisting($Name);
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=1,
+                   ParameterSetName='MemoryMappedFileRights')]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=1,
+                   ParameterSetName='HandleInheritability')]
+        [ValidateNotNull()]
+        [ValidateNotNullOrEmpty()]
+        [System.IO.MemoryMappedFiles.MemoryMappedFileRights] $MemoryMappedFileRights,
+
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=2,
+                   ParameterSetName='HandleInheritability')]
+        [ValidateNotNull()]
+        [ValidateNotNullOrEmpty()]
+        [System.IO.HandleInheritability] $HandleInheritability
+    )
+
+	if ($PSCmdlet.ParameterSetName -eq "Default") {	[System.IO.MemoryMappedFiles.MemoryMappedFile]::OpenExisting($Name); }
+    if ($PSCmdlet.ParameterSetName -eq "MemoryMappedFileRights") {	[System.IO.MemoryMappedFiles.MemoryMappedFile]::OpenExisting($Name, $MemoryMappedFileRights); }
+    if ($PSCmdlet.ParameterSetName -eq "HandleInheritability") {	[System.IO.MemoryMappedFiles.MemoryMappedFile]::OpenExisting($Name, $MemoryMappedFileRights, $HandleInheritability); }
 }
 
 function Out-MemoryMappedFile
