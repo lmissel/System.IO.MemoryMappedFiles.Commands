@@ -181,10 +181,23 @@ function Out-MemoryMappedFile
 
 	# Erstellt einen Stream, der einer Ansicht der Speicherabbilddatei zugeordnet ist.
 	$Stream = $MemoryMappedFile.CreateViewStream()
+	$StreamReader = New-Object System.IO.StreamReader -ArgumentList $Stream
+	$Buffer = $StreamReader.ReadToEnd().Replace("`0", "")
+	$StreamReader.Dispose()
+    $Stream.Dispose()
 
+    if (!([String]::IsNullOrEmpty($Buffer)))
+    {
+        $Text = $Buffer + "`r`n" + $String
+    }
+    else
+    {
+        $Text = $String
+    }
+
+    $Stream = $MemoryMappedFile.CreateViewStream()
 	$StreamWriter = New-Object System.IO.StreamWriter -ArgumentList $Stream
-
-	$StreamWriter.Write($String)
+	$StreamWriter.Write($Text)
 
 	$StreamWriter.Dispose()
 	$Stream.Dispose()
