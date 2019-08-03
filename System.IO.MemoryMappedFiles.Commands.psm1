@@ -344,8 +344,8 @@ function New-MemoryMappedFile
 function Open-MemoryMappedFile
 {
     [CmdletBinding(DefaultParameterSetName='Default', 
-                  SupportsShouldProcess=$true, 
-                  PositionalBinding=$false,
+                  SupportsShouldProcess=$false, 
+                  PositionalBinding=$true,
                   HelpUri = 'https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/',
                   ConfirmImpact='Medium')]
     [Alias()]
@@ -407,14 +407,34 @@ function Open-MemoryMappedFile
 
 function Out-MemoryMappedFile
 {
-	[CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName='Default', 
+                  SupportsShouldProcess=$false, 
+                  PositionalBinding=$true,
+                  HelpUri = 'https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/',
+                  ConfirmImpact='Medium')]
 	param(
-	    [Parameter(Mandatory)]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='Default')]
 	    [System.IO.MemoryMappedFiles.MemoryMappedFile]$MemoryMappedFile,
 
-	    [Parameter(ValueFromPipeline=$true, Mandatory)]
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=1,
+                   ParameterSetName='Default')]
 	    [String]$String,
 
+        [Parameter(Mandatory=$false, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=2,
+                   ParameterSetName='Default')]
         [Switch] $Append
     )
 
@@ -445,10 +465,20 @@ function Out-MemoryMappedFile
 
 function Read-MemoryMappedFile
 {
-	[CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName='Default', 
+                  SupportsShouldProcess=$false, 
+                  PositionalBinding=$true,
+                  HelpUri = 'https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/',
+                  ConfirmImpact='Medium')]
 	param(
-	[Parameter(Mandatory)]
-	[System.IO.MemoryMappedFiles.MemoryMappedFile]$MemoryMappedFile)
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='Default')]
+	    [System.IO.MemoryMappedFiles.MemoryMappedFile]$MemoryMappedFile
+    )
 
 	$Stream = $MemoryMappedFile.CreateViewStream()
 
@@ -461,10 +491,64 @@ function Read-MemoryMappedFile
 
 function Remove-MemoryMappedFile 
 {
-	[CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName='Default', 
+                  SupportsShouldProcess=$false, 
+                  PositionalBinding=$true,
+                  HelpUri = 'https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/',
+                  ConfirmImpact='Medium')]
 	param(
-	[Parameter(Mandatory)]
-	[System.IO.MemoryMappedFiles.MemoryMappedFile]$MemoryMappedFile)
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='Default')]
+	    [System.IO.MemoryMappedFiles.MemoryMappedFile]$MemoryMappedFile
+    )
 
 	$MemoryMappedFile.Dispose()
+}
+
+function Save-MemoryMappedFile
+{
+    [CmdletBinding(DefaultParameterSetName='Default', 
+                  SupportsShouldProcess=$false, 
+                  PositionalBinding=$true,
+                  HelpUri = 'https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/',
+                  ConfirmImpact='Medium')]
+	param(
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=0,
+                   ParameterSetName='Default')]
+	    [System.IO.MemoryMappedFiles.MemoryMappedFile]$MemoryMappedFile,
+
+        [Parameter(Mandatory=$true, 
+                   ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true, 
+                   ValueFromRemainingArguments=$false, 
+                   Position=1,
+                   ParameterSetName='Default')]
+        [String] $Path
+    )
+
+    Begin
+    {
+	    $Stream = $MemoryMappedFile.CreateViewStream()
+	    $StreamReader = New-Object System.IO.StreamReader -ArgumentList $Stream
+	    $Buffer = $StreamReader.ReadToEnd().Replace("`0", "")
+    }
+
+    Process
+    {
+        Set-Content -Value $Buffer -Path $Path -Force
+    }
+    
+    End
+    {
+	    $StreamReader.Dispose()
+	    $Stream.Dispose()
+    }
 }
