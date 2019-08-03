@@ -34,3 +34,6 @@ Open-MemoryMappedFile -Name "Test"
 # Gibt alle vom MemoryMappedFile verwendeten Ressourcen frei.
 Remove-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
 ```
+
+## Hinweis
+Das Module verwendet Enumerationen und Klassen des Namepaces [System.IO].
