@@ -1,5 +1,5 @@
 # System.IO.MemoryMappedFiles.Commands
-This PowerShell module provides functions for so-called memory dump files. Memory dump files allow programmers to work with very large files because memory can be managed simultaneously. Memory image files can also be used by multiple processes, so that data can be shared across multiple PowerShell instances with memory image files.
+This PowerShell module provides functions for so-called memory mapped files. Memory mapped files allow programmers to work with very large files because memory can be managed simultaneously. Memory mapped files can also be used by multiple processes, so that data can be shared across multiple PowerShell instances with memory mapped files.
 
 It is also possible to read in existing files, which allows faster access to the data.
 
