@@ -4,7 +4,7 @@ This PowerShell module provides functions for so-called memory mapped files. Mem
 Similarly, reading of existing files is possible, which allows faster access to the data is made possible.
 
 # Example from Microsoft Docs
-The following example is composed of three separate processes (console applications) that write Boolean values to a memory-mapped file. The following sequence of actions occur:
+The following example is composed of three separate processes (console applications) that write values to a memory-mapped file. The following sequence of actions occur:
 
 - Process A creates the memory-mapped file and writes a value to it.
 
