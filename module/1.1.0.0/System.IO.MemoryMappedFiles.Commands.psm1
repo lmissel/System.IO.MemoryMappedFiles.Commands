@@ -1,4 +1,4 @@
-﻿# 
+﻿#
 # Module Name: System.IO.MemoryMappedFiles.Commands
 # Module Guid: 8515ea70-3c13-4fa9-ad9c-2d3325bf5c8f
 #

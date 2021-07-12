@@ -4,7 +4,7 @@
 # User-specific files
 [Qq]uality/
 [Ii]gnore/
-[Oo]ld
+[Oo]ld/
 
 # For developing in VSCode
 .vscode/launch.json
