@@ -9,11 +9,11 @@ The module requires .NET Core (1.0, 1.1, 2.0, 2.1, 2.2, 3.0, 3.1), .NET Standard
 
 ## Installation
 
-To install and run this module, save the module to one of the appropriate PowerShell paths, and use `Import-Module`.
+To install and run this module, package the Module folder in one of the appropriate PowerShell paths and use Import-Module.
 
-The paths where you can install this module are located in the `$env:PSModulePath` global variable. For example, a common path to save a module on a system would be `%SystemRoot%/users/<user>/Documents/PowerShell/Modules/<moduleName>`. Be sure to create a directory for this module that uses the same name as the script module, even if it's only a single `.psm1` file. If you didn't save this module to one of these paths, you would have to specify the module's location in the `Import-Module` command. Otherwise, PowerShell wouldn't be able to find the module.
+The paths where you can install this module are in the `$env:PSModulePath` global variable. For example, a common path to store a module on a system would be `%SystemRoot%/users/<user>/Documents/PowerShell/Modules/<moduleName>`. Be sure to create a directory for this module that uses the same name `System.IO.MemoryMappedFiles.Commands` as the script module. If you did not save this module in one of these paths, you must specify the location of the module in the Import-Module command. Otherwise, PowerShell would not be able to find the module.
 
-Starting with PowerShell, if you've placed this module in one of the PowerShell module paths, you don't need to explicitly import it. this module is automatically loaded when a user calls this function. For more information about the module path, see [Importing a PowerShell Module](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/importing-a-powershell-module?view=powershell-7.1) and [Modifying the PSModulePath Installation Path](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/modifying-the-psmodulepath-installation-path?view=powershell-7.1).
+Starting with PowerShell, if you've placed this module in one of the PowerShell module paths, you don't need to explicitly import it. This module is automatically loaded when a user calls a function of the module. For more information about the module path, see [Importing a PowerShell Module](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/importing-a-powershell-module?view=powershell-7.1) and [Modifying the PSModulePath Installation Path](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/modifying-the-psmodulepath-installation-path?view=powershell-7.1).
 
 To remove this module from active service in the current PowerShell session, use `Remove-Module -name System.IO.MemoryMappedFiles.Commands`.
 
