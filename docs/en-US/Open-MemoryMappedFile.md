@@ -1,4 +1,4 @@
-﻿---
+---
 external help file: System.IO.MemoryMappedFiles.Commands-help.xml
 Module Name: System.IO.MemoryMappedFiles.Commands
 online version: https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/
