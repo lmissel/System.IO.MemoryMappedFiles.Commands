@@ -9,7 +9,7 @@ The module requires .NET Core (1.0, 1.1, 2.0, 2.1, 2.2, 3.0, 3.1), .NET Standard
 
 ## Installation
 
-To install and run this module, package the Module folder in one of the appropriate PowerShell paths and use Import-Module.
+To install and run this module, copy the `module` folder in one of the appropriate PowerShell paths and use Import-Module.
 
 The paths where you can install this module are in the `$env:PSModulePath` global variable. For example, a common path to store a module on a system would be `%SystemRoot%/users/<user>/Documents/PowerShell/Modules/<moduleName>`. Be sure to create a directory for this module that uses the same name `System.IO.MemoryMappedFiles.Commands` as the script module. If you did not save this module in one of these paths, you must specify the location of the module in the Import-Module command. Otherwise, PowerShell would not be able to find the module.
 
