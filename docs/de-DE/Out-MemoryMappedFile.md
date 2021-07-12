@@ -5,34 +5,48 @@ online version: https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/
 schema: 2.0.0
 ---
 
-# Save-MemoryMappedFile
+# Out-MemoryMappedFile
 
 ## SYNOPSIS
-Saves the MemoryMappedFile to a specified path.
+Schreibt Daten in die MemoryMappedFile.
 
 ## SYNTAX
 
 ```
-Save-MemoryMappedFile [-MemoryMappedFile] <MemoryMappedFile> [-Path] <String> [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Out-MemoryMappedFile [-MemoryMappedFile] <MemoryMappedFile> [-String] <String> [-Append] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The Save-MemoryMappedFile function saves the MemoryMappedFile to a specified path.
+Die Funktion `Out-MemoryMappedFile` ruft einen `MemoryMappedViewStream` einer im speicherabgebildeten Datei ab und schreibt einen Wert in den Stream für die Interprozesskommunikation.
 
 ## EXAMPLES
 
-### Example 1: Export a memory mapped fiel to disk.
-```powershell
-PS C:\> Save-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile -Path "C:\test.dat"
+### Example 1: In eine im speicherabgebildeten Datei schreiben.
+```Powershell
+PS C:\> Out-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile -String "Hello World!"
 ```
-
-The following example retrieves a MemoryMappedViewStream from a memory mapped file and writes the value from the stream to a file.
+Das folgende Beispiel ruft einen `MemoryMappedViewStream` einer im speicherabgebildeten Datei ab und schreibt einen Wert in den Stream für die Interprozesskommunikation.
 
 ## PARAMETERS
 
+### -Append
+Gibt an, ob der Inhalt am Ende einer Ressource angehängt werden soll.
+Andernfalls wird der Inhalt durch den Wert ersetzt.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: False
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
 ### -MemoryMappedFile
-Represents a memory-mapped file.
+Stellt eine memory-mapped Datei dar.
 
 ```yaml
 Type: MemoryMappedFile
@@ -46,49 +60,18 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -Path
-Represents a path.
+### -String
+Die Zeichenkette, die in den Stream geschrieben werden soll.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: value
 
 Required: True
 Position: 2
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -101,16 +84,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String
 
+### System.Management.Automation.SwitchParameter
+
 ## OUTPUTS
 
 ### System.Object
-
 ## NOTES
 
 ## RELATED LINKS
 [New-MemoryMappedFile](New-MemoryMappedFile.md)
 [Open-MemoryMappedFile](Open-MemoryMappedFile.md)
-[Out-MemoryMappedFile](Out-MemoryMappedFile.md)
 [Read-MemoryMappedFile](Read-MemoryMappedFile.md)
 [Remove-MemoryMappedFile](Remove-MemoryMappedFile.md)
+[Save-MemoryMappedFile](Save-MemoryMappedFile.md)
 

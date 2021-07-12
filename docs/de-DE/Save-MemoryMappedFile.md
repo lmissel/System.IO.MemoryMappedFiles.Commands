@@ -8,7 +8,7 @@ schema: 2.0.0
 # Save-MemoryMappedFile
 
 ## SYNOPSIS
-Saves the MemoryMappedFile to a specified path.
+Speichert die MemoryMappedFile in einem angegebenen Pfad.
 
 ## SYNTAX
 
@@ -18,21 +18,21 @@ Save-MemoryMappedFile [-MemoryMappedFile] <MemoryMappedFile> [-Path] <String> [-
 ```
 
 ## DESCRIPTION
-The Save-MemoryMappedFile function saves the MemoryMappedFile to a specified path.
+Die Funktion `Save-MemoryMappedFile` speichert die im speicherabgebildete Datei an einem angegebenen Pfad auf der Festplatte ab.
 
 ## EXAMPLES
 
-### Example 1: Export a memory mapped fiel to disk.
-```powershell
+### Example 1: Speichern eines MemoryMappedFile auf die Festplatte.
+```Powershell
 PS C:\> Save-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile -Path "C:\test.dat"
 ```
 
-The following example retrieves a MemoryMappedViewStream from a memory mapped file and writes the value from the stream to a file.
+Das folgende Beispiel ruft einen `MemoryMappedViewStream` aus einer im speicherabgebildeten Datei ab und schreibt den Wert aus dem Stream in eine Datei auf die Festplatte.
 
 ## PARAMETERS
 
 ### -MemoryMappedFile
-Represents a memory-mapped file.
+Stellt eine Memory-mapped Datei dar.
 
 ```yaml
 Type: MemoryMappedFile
@@ -46,8 +46,8 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -Path
-Represents a path.
+### -Pfad
+Stellt einen Pfad dar.
 
 ```yaml
 Type: String
@@ -62,7 +62,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
-Prompts you for confirmation before running the cmdlet.
+Fordert Sie vor der Ausführung des Cmdlets zur Bestätigung auf.
 
 ```yaml
 Type: SwitchParameter
@@ -77,8 +77,8 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Zeigt an, was passieren würde, wenn das Cmdlet ausgeführt wird.
+Das Cmdlet wird nicht ausgeführt.
 
 ```yaml
 Type: SwitchParameter

@@ -5,32 +5,34 @@ online version: https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/
 schema: 2.0.0
 ---
 
-# Remove-MemoryMappedFile
+# Read-MemoryMappedFile
 
 ## SYNOPSIS
-Releases the resources used by the MemoryMappedFile.
+Lesen von Daten aus einer im speicherabgebildeten Datei.
 
 ## SYNTAX
 
 ```
-Remove-MemoryMappedFile [-MemoryMappedFile] <MemoryMappedFile> [<CommonParameters>]
+Read-MemoryMappedFile [-MemoryMappedFile] <MemoryMappedFile> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The Remove-MemoryMappedFile function releases the resources used by the MemoryMappedFile.
+Die Funktion `Read-MemoryMappedFile` ruft einen `MemoryMappedViewStream` einer m speicherabgebildeten Datei ab und liest den Wert aus dem Stream für die Interprozesskommunikation aus.
 
 ## EXAMPLES
 
-### EXAMPLE 1: Releases all resources used by the MemoryMappedFile
-```powershell
-PS C:\> Remove-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
+### Example 1: Lesen eines Memory-Mapped-File-Streams.
+```Powershell
+PS C:\> Read-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
+
+Hallo Welt!
 ```
-Releases all resources used by the MemoryMappedFile.
+Das folgende Beispiel ruft einen `MemoryMappedViewStream` einer im speicherabgebildeten Datei ab und liest den Wert aus dem Stream für die Interprozesskommunikation aus.
 
 ## PARAMETERS
 
 ### -MemoryMappedFile
-Represents a memory-mapped file.
+Stellt eine im speicherabgebildete Datei dar.
 
 ```yaml
 Type: MemoryMappedFile
@@ -60,5 +62,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 [New-MemoryMappedFile](New-MemoryMappedFile.md)
 [Open-MemoryMappedFile](Open-MemoryMappedFile.md)
 [Out-MemoryMappedFile](Out-MemoryMappedFile.md)
-[Read-MemoryMappedFile](Read-MemoryMappedFile.md)
+[Remove-MemoryMappedFile](Remove-MemoryMappedFile.md)
 [Save-MemoryMappedFile](Save-MemoryMappedFile.md)
+

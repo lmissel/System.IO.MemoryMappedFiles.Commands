@@ -8,7 +8,7 @@ schema: 2.0.0
 # Open-MemoryMappedFile
 
 ## SYNOPSIS
-Opens an existing named memory-mapped file in system memory.
+Öffnet eine vorhandene benannte im speicherabgebildete Datei im Systemspeicher.
 
 ## SYNTAX
 
@@ -29,22 +29,22 @@ Open-MemoryMappedFile [-Name] <String> [-MemoryMappedFileRights] <MemoryMappedFi
 ```
 
 ## DESCRIPTION
-Opens an existing memory-mapped file that has the specified name, access rights, and inheritability in system memory.
+Öffnet eine vorhandene im speicherabgebildete Datei, die den angegebenen Namen, die Zugriffsrechte und die Vererbbarkeit im Systemspeicher hat.
 
 ## EXAMPLES
 
-### EXAMPLE 1: Opens an existing memory-mapped file that has the specified name in system memory.
-```powershell
+### Example 1: Öffnet eine vorhandene Datei mit Speicherzuordnung, die den angegebenen Namen im Systemspeicher hat.
+```Powershell
 PS C:\> Open-MemoryMappedFile -Name "Test"
 
 SafeMemoryMappedFileHandle
 --------------------------
 Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle
 ```
-The following example opens a memory-mapped file named `Test` that has already been created.
+Das folgende Beispiel öffnet eine im speicherabgebildete Datei mit dem Namen `Test`, die bereits erstellt wurde.
 
-### EXAMPLE 2: Opens an existing memory-mapped file that has the specified name and access rights in system memory.
-```powershell
+### Example 2: Öffnet eine vorhandene memory-mapped Datei, die den angegebenen Namen und die Zugriffsrechte im Systemspeicher hat.
+```Powershell
 PS C:\> Open-MemoryMappedFile -Name "Test" -MemoryMappedFileRights FullControl
 
 SafeMemoryMappedFileHandle
@@ -52,24 +52,24 @@ SafeMemoryMappedFileHandle
 Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle
 ```
 
-The following example opens a memory-mapped file named `Test` that has already been created.
+Das folgende Beispiel öffnet eine im speicherabgebildete Datei mit dem Namen `Test`, die bereits erstellt worden ist.
 
-### EXAMPLE 3: Opens an existing memory-mapped file that has the specified name, access rights, and inheritability in system memory.
+### Example 3: Öffnet eine vorhandene im speicherabgebildete Datei, die den angegebenen Namen, die Zugriffsrechte und die Vererbbarkeit im Systemspeicher hat.
 
-```powershell
+```Powershell
 PS C:\> Open-MemoryMappedFile -Name "Test" -MemoryMappedFileRights FullControl -HandleInheritability Inheritable
 
 SafeMemoryMappedFileHandle
 --------------------------
 Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle
 ```
-The following example opens a memory-mapped file named `Test` that has already been created.
+Das folgende Beispiel öffnet eine im speicherabgebildete Datei namens `Test`, die bereits erstellt wurde.
 
 ## PARAMETERS
 
 ### -HandleInheritability
-One of the enumeration values that specifies whether a handle to the memory-mapped file can be inherited by a child process.
-The default is None.
+Einer der Aufzählungswerte, der angibt, ob ein Handle auf die im speicherabgebildete Datei an einen Kindprozess vererbt werden kann.
+Der Standardwert ist None.
 
 ```yaml
 Type: HandleInheritability
@@ -85,7 +85,7 @@ Accept wildcard characters: False
 ```
 
 ### -MemoryMappedFileRights
-One of the enumeration values that specifies the access rights to apply to the memory-mapped file.
+Einer der Aufzählungswerte, der die Zugriffsrechte angibt, die für die memory-mapped Datei gelten sollen.
 
 ```yaml
 Type: MemoryMappedFileRights
@@ -101,7 +101,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-The name of the memory-mapped file.
+Der Name der Memory-mapped Datei.
 
 ```yaml
 Type: String

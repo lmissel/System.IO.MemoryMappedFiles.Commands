@@ -1,15 +1,24 @@
 # System.IO.MemoryMappedFiles.Commands
-This PowerShell module provides functions for so-called memory mapped files. Memory mapped files allow programmers to work with very large files because memory can be managed simultaneously. Memory mapped files can also be used by multiple processes, so that data can be shared across multiple PowerShell instances with memory mapped files.
+This PowerShell script module **[System.IO.MemoryMappedFiles.Commands](.\docs\en-US\System.IO.MemoryMappedFiles.Commands.md)** provides functions for so-called memory mapped files. Memory mapped files allow programmers to work with very large files because memory can be managed simultaneously. Memory mapped files can also be used by multiple processes, so that data can be shared across multiple PowerShell instances with memory mapped files.
 
 It is also possible to read in existing files, which allows faster access to the data.
 
-## Requirements
+## Minimum Requirements
 
-To use this module, .Net Standard is required. This should be available by default on Windows systems.
+The module requires .NET Core (1.0, 1.1, 2.0, 2.1, 2.2, 3.0, 3.1), .NET Standard (2.0, 2.1), .NET Framework (4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2, 4.7, 4.7.1, 4.7.2, 4.8) or .NET (5.0, 6.0 Preview 3).
 
 ## Installation
 
-Copy the module into one of the PowerShell module paths.
+To install and run this module, save the module to one of the appropriate PowerShell paths, and use `Import-Module`.
+
+The paths where you can install this module are located in the `$env:PSModulePath` global variable. For example, a common path to save a module on a system would be `%SystemRoot%/users/<user>/Documents/PowerShell/Modules/<moduleName>`. Be sure to create a directory for this module that uses the same name as the script module, even if it's only a single `.psm1` file. If you didn't save this module to one of these paths, you would have to specify the module's location in the `Import-Module` command. Otherwise, PowerShell wouldn't be able to find the module.
+
+Starting with PowerShell, if you've placed this module in one of the PowerShell module paths, you don't need to explicitly import it. this module is automatically loaded when a user calls this function. For more information about the module path, see [Importing a PowerShell Module](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/importing-a-powershell-module?view=powershell-7.1) and [Modifying the PSModulePath Installation Path](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/modifying-the-psmodulepath-installation-path?view=powershell-7.1).
+
+To remove this module from active service in the current PowerShell session, use `Remove-Module -name System.IO.MemoryMappedFiles.Commands`.
+
+> [!Note]
+> `Remove-Module` removes a module from the current PowerShell session, but doesn't uninstall the module or delete the module's files.
 
 ## Usage
 
@@ -31,11 +40,12 @@ Read-Host
 # Creates a stream associated with a view of the memory map file and reads that stream.
 Read-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
 
-Output:
-Hello back!
-
 # Releases all resources used by the MemoryMappedFile.
 Remove-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
+```
+
+```Output
+Hello back!
 ```
 
 Start a new PowerShell Instance.
@@ -50,9 +60,6 @@ $MemoryMappedFile = Open-MemoryMappedFile -Name "Test"
 # Creates a stream associated with a view of the memory map file and reads that stream.
 Read-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
 
-Output:
-Hello World!
-
 # Creates a stream associated with a view of the memory map file and adds the string as a stream.
 Out-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile -String "Hello back!"
 
@@ -63,5 +70,12 @@ Remove-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
 Read-Host
 ```
 
+```Output
+Hello World!
+```
+
 ## Note
 The module uses enumerations and classes of the namepace [System.IO.MemoryMappedFiles]. This namespace provides classes for using a memory-mapped file, which maps the contents of a file to the logical address space of an application.
+
+## See also
+- [System.IO.MemoryMappedFiles Namespace | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/api/system.io.memorymappedfiles?view=net-5.0)

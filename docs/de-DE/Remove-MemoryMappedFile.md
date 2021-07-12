@@ -8,7 +8,7 @@ schema: 2.0.0
 # Remove-MemoryMappedFile
 
 ## SYNOPSIS
-Releases the resources used by the MemoryMappedFile.
+Gibt die von der MemoryMappedFile verwendeten Ressourcen frei.
 
 ## SYNTAX
 
@@ -17,20 +17,20 @@ Remove-MemoryMappedFile [-MemoryMappedFile] <MemoryMappedFile> [<CommonParameter
 ```
 
 ## DESCRIPTION
-The Remove-MemoryMappedFile function releases the resources used by the MemoryMappedFile.
+Die Funktion Remove-MemoryMappedFile gibt die von der MemoryMappedFile verwendeten Ressourcen frei.
 
 ## EXAMPLES
 
-### EXAMPLE 1: Releases all resources used by the MemoryMappedFile
-```powershell
+### Example 1: Gibt alle Ressourcen frei, die von der MemoryMappedFile verwendet werden
+```Powershell
 PS C:\> Remove-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
 ```
-Releases all resources used by the MemoryMappedFile.
+Gibt alle von der MemoryMappedFile verwendeten Ressourcen frei.
 
 ## PARAMETERS
 
 ### -MemoryMappedFile
-Represents a memory-mapped file.
+Stellt eine memory-mapped Datei dar.
 
 ```yaml
 Type: MemoryMappedFile

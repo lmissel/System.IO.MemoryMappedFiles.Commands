@@ -1,7 +1,7 @@
----
+﻿---
 external help file: System.IO.MemoryMappedFiles.Commands-help.xml
 Module Name: System.IO.MemoryMappedFiles.Commands
-online version:
+online version: https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/
 schema: 2.0.0
 ---
 
@@ -21,10 +21,13 @@ The Read-MemoryMappedFile function retrieves a MemoryMappedViewStream of a memor
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1: Read a memory mapped file stream.
+```powershell
+PS C:\> Read-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
+
+Hello World!
 ```
-Read-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
-```
+The following example obtains a MemoryMappedViewStream of a memory-mapped file and read the value from the stream for inter-process communication.
 
 ## PARAMETERS
 
@@ -48,16 +51,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.IO.MemoryMappedFiles.MemoryMappedFile
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
-FunctionName : Read-MemoryMappedFile
-Created by : lmissel
-Date Modified : 10/07/2021 09:00:00
-More info : https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/
 
 ## RELATED LINKS
-
-[More informations about this function:
-https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/Help/en-US/Read-MemoryMappedFile.md]()
+[New-MemoryMappedFile](New-MemoryMappedFile.md)
+[Open-MemoryMappedFile](Open-MemoryMappedFile.md)
+[Out-MemoryMappedFile](Out-MemoryMappedFile.md)
+[Remove-MemoryMappedFile](Remove-MemoryMappedFile.md)
+[Save-MemoryMappedFile](Save-MemoryMappedFile.md)
 

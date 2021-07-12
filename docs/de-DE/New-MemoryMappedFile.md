@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-MemoryMappedFile
 
 ## SYNOPSIS
-Creates or opens a memory image file in system memory, or creates a memory image file from an existing file.
+Erzeugt oder öffnet eine Speicherabbilddatei im Systemspeicher oder erstellt eine Speicherabbilddatei aus einer vorhandenen Datei.
 
 ## SYNTAX
 
@@ -66,15 +66,15 @@ New-MemoryMappedFile [-Name] <String> [-Size] <Int64> [-MemoryMappedFileAccess] 
 ```
 
 ## DESCRIPTION
-Creates or opens a memory image file in system memory, or creates a memory image file from an existing file.
+Erzeugt oder öffnet eine Speicherabbilddatei im Systemspeicher oder erstellt eine Speicherabbilddatei aus einer vorhandenen Datei.
 
-Memory-mapped files allow programmers to work with extremely large files because memory can be managed concurrently, and they provide complete random access to a file without requiring a seek. Memory-mapped files can also be shared among multiple processes.
+Speicherabbilddateien ermöglichen es Programmierern, mit extrem großen Dateien zu arbeiten, da der Speicher gleichzeitig verwaltet werden kann und sie einen vollständigen wahlfreien Zugriff auf eine Datei ermöglichen, ohne dass ein Suchlauf erforderlich ist. Speicherabbilddateien können auch von mehreren Prozessen gemeinsam genutzt werden.
 
-A memory-mapped file can be associated with an optional name that allows the memory-mapped file to be shared with other processes.
+Eine Speicherabbilddateiv kann mit einem optionalen Namen verknüpft werden, der die gemeinsame Nutzung der Speicherabbilddatei mit anderen Prozessen ermöglicht.
 
 ## EXAMPLES
 
-### Example 1: Create a new memory-mapped file. (Default)
+### Example 1: Erstellen Sie eine neue Speicherabbilddatei. (Default)
 ```powershell
 PS C:\> New-MemoryMappedFile -Name "Test" -Size 1024
 
@@ -83,9 +83,9 @@ SafeMemoryMappedFileHandle
 Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle
 ```
 
-This command creates a memory-mapped file that has the specified capacity in system memory.
+Dieser Befehl erstellt eine speicherabgebildete Datei mit der angegebenen Kapazität im Systemspeicher.
 
-### EXAMPLE 2: Create a new memory-mapped file.
+### EXAMPLE 2: Erstellen Sie eine neue Speicherabbilddatei.
 ```powershell
 PS C:\> New-MemoryMappedFile -Name "Test" -Size 1024 -MemoryMappedFileAccess ReadWriteExecute
 
@@ -93,12 +93,12 @@ SafeMemoryMappedFileHandle
 --------------------------
 Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle
 ```
-This command creates a memory-mapped file that has the specified capacity and access type in system memory.
+Mit diesem Befehl wird eine Speicherabbilddatei mit der angegebenen Kapazität und Zugriffsart im Systemspeicher erstellt.
 
 ## PARAMETERS
 
 ### -CreateOrOpen
-Creates a new empty memory mapped file or opens an existing memory mapped file if one exists.
+Erzeugt eine neue leere Speicherabbilddatei oder öffnet eine vorhandene Speicherabbilddatei, falls eine solche existiert.
 
 ```yaml
 Type: SwitchParameter
@@ -113,7 +113,7 @@ Accept wildcard characters: False
 ```
 
 ### -FileMode
-Access mode; must be Open.
+Zugriffsmodus; muss Offen sein.
 
 ```yaml
 Type: FileMode
@@ -129,7 +129,7 @@ Accept wildcard characters: False
 ```
 
 ### -FileStream
-The file stream of the existing file.
+Der Dateistrom der vorhandenen Datei.
 
 ```yaml
 Type: FileStream
@@ -144,8 +144,8 @@ Accept wildcard characters: False
 ```
 
 ### -HandleInheritability
-A value that specifies whether a handle to the memory-mapped file can be inherited by a child process.
-The default is None.
+Ein Wert, der angibt, ob ein Handle auf die Speicherabbilddatei an einen Kindprozess vererbt werden kann.
+Der Standardwert ist None.
 
 ```yaml
 Type: HandleInheritability
@@ -161,7 +161,7 @@ Accept wildcard characters: False
 ```
 
 ### -leaveOpen
-A value that indicates whether to close the source file stream when the MemoryMappedFile is disposed.
+Ein Wert, der angibt, ob der Quelldateistrom geschlossen werden soll, wenn die Speicherabbilddatei entsorgt wird.
 
 ```yaml
 Type: Boolean
@@ -176,8 +176,8 @@ Accept wildcard characters: False
 ```
 
 ### -MemoryMappedFileAccess
-One of the enumeration values that specifies the type of access allowed to the memory-mapped file.
-The default is ReadWrite.
+Einer der Aufzählungswerte, der die Art des erlaubten Zugriffs auf die im Speicher abgebildete Datei angibt.
+Der Standardwert ist ReadWrite.
 
 ```yaml
 Type: MemoryMappedFileAccess
@@ -193,7 +193,7 @@ Accept wildcard characters: False
 ```
 
 ### -MemoryMappedFileOptions
-A bitwise combination of enumeration values that specifies memory allocation options for the memory-mapped file.
+Eine bitweise Kombination von Aufzählungswerten, die Speicherzuweisungsoptionen für die Speicherabbilddatei angibt.
 
 ```yaml
 Type: MemoryMappedFileOptions
@@ -209,7 +209,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-A name to assign to the memory-mapped file, or null for a MemoryMappedFile that you do not intend to share across processes.
+Ein Name, der der Speicherabbilddatei zugewiesen werden soll, oder null für eine Speicherabbilddatei, die Sie nicht prozessübergreifend nutzen wollen.
 
 ```yaml
 Type: String
@@ -224,7 +224,7 @@ Accept wildcard characters: False
 ```
 
 ### -Path
-The path to file to map.
+Der Pfad zur zuzuordnenden Datei.
 
 ```yaml
 Type: String
@@ -239,7 +239,7 @@ Accept wildcard characters: False
 ```
 
 ### -Size
-The maximum size, in bytes, to allocate to the memory-mapped file.
+Die maximale Größe in Byte, die der speicherabgebildeten Datei zugewiesen werden soll.
 
 ```yaml
 Type: Int64
@@ -254,7 +254,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
-Prompts you for confirmation before running the cmdlet.
+Fordert Sie vor der Ausführung des Cmdlets zur Bestätigung auf.
 
 ```yaml
 Type: SwitchParameter
@@ -269,8 +269,8 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Zeigt an, was passieren würde, wenn das Cmdlet ausgeführt wird.
+Das Cmdlet wird nicht ausgeführt.
 
 ```yaml
 Type: SwitchParameter
