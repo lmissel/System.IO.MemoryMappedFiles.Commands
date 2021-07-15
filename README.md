@@ -87,6 +87,7 @@ Hello World!
 |Version|State|Comment|
 |---|---|---|
 |1.0.0.0|done|Initial module|
+|1.0.0.1|done|Small bug fix|
 |1.1.0.0|in Progress|New structure and division of the module and functions, multilingualism, bug fixes as well as enhancements.|
 
 >[!Important]
