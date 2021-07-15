@@ -1,5 +1,5 @@
 # System.IO.MemoryMappedFiles.Commands
-This PowerShell script module **[System.IO.MemoryMappedFiles.Commands](.\docs\en-US\System.IO.MemoryMappedFiles.Commands.md)** provides functions for so-called memory mapped files. Memory mapped files allow programmers to work with very large files because memory can be managed simultaneously. Memory mapped files can also be used by multiple processes, so that data can be shared across multiple PowerShell instances with memory mapped files.
+This PowerShell script module **[System.IO.MemoryMappedFiles.Commands](docs\en-US\System.IO.MemoryMappedFiles.Commands.md)** provides functions for so-called memory mapped files. Memory mapped files allow programmers to work with very large files because memory can be managed simultaneously. Memory mapped files can also be used by multiple processes, so that data can be shared across multiple PowerShell instances with memory mapped files.
 
 It is also possible to read in existing files, which allows faster access to the data.
 
@@ -88,7 +88,7 @@ Hello World!
 |---|---|---|
 |1.0.0.0|done|Initial module|
 |1.0.0.1|done|Small bug fix|
-|1.1.0.0|in Progress|New structure and division of the module and functions, multilingualism, bug fixes as well as enhancements.|
+|1.1.0.0|done|New structure and division of the module and functions, multilingualism, bug fixes as well as enhancements.|
 
 >[!Important]
 >Some functions may have been renamed or given additional functionality. Please check your scripts for functionality and correct them if necessary.
