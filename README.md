@@ -5,11 +5,19 @@ It is also possible to read in existing files, which allows faster access to the
 
 ## Minimum Requirements
 
-The module requires .NET Core (1.0, 1.1, 2.0, 2.1, 2.2, 3.0, 3.1), .NET Standard (2.0, 2.1), .NET Framework (4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2, 4.7, 4.7.1, 4.7.2, 4.8) or .NET (5.0, 6.0 Preview 3).
+The module requires .NET and PowerShell. The following versions are supported:
+
+|Product|Version|
+|---|---|
+|.NET Core|1.0, 1.1, 2.0, 2.1, 2.2, 3.0, 3.1|
+|.NET Standard|2.0, 2.1|
+|.NET Framework|4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2, 4.7, 4.7.1, 4.7.2, 4.8|
+|.NET|5.0, 6.0 Preview 3|
+|PowerShell|3.0 or higher|
 
 ## Installation
 
-To install and run this module, copy the `module` folder in one of the appropriate PowerShell paths and use Import-Module.
+To install and run this module, copy the folder with the name `System.IO.MemoryMappedFiles.Commands` in one of the appropriate PowerShell paths and use `Import-Module -Name System.IO.MemoryMappedFiles.Commands`.
 
 The paths where you can install this module are in the `$env:PSModulePath` global variable. For example, a common path to store a module on a system would be `%SystemRoot%/users/<user>/Documents/PowerShell/Modules/<moduleName>`. Be sure to create a directory for this module that uses the same name `System.IO.MemoryMappedFiles.Commands` as the script module. If you did not save this module in one of these paths, you must specify the location of the module in the Import-Module command. Otherwise, PowerShell would not be able to find the module.
 
@@ -73,6 +81,16 @@ Read-Host
 ```Output
 Hello World!
 ```
+
+## Changelog
+
+|Version|State|Comment|
+|---|---|---|
+|1.0.0.0|done|Initial module|
+|1.1.0.0|in Progress|New structure and division of the module and functions, multilingualism, bug fixes as well as enhancements.|
+
+>[!Important]
+>Some functions may have been renamed or given additional functionality. Please check your scripts for functionality and correct them if necessary.
 
 ## Note
 The module uses enumerations and classes of the namepace [System.IO.MemoryMappedFiles]. This namespace provides classes for using a memory-mapped file, which maps the contents of a file to the logical address space of an application.
