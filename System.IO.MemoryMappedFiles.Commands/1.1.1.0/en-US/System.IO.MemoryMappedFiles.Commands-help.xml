@@ -1,0 +1,1825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-MemoryMappedFile</command:name>
+      <command:verb>New</command:verb>
+      <command:noun>MemoryMappedFile</command:noun>
+      <maml:description>
+        <maml:para>Creates or opens a memory image file in system memory, or creates a memory image file from an existing file.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Creates or opens a memory image file in system memory, or creates a memory image file from an existing file.</maml:para>
+      <maml:para>Memory-mapped files allow programmers to work with extremely large files because memory can be managed concurrently, and they provide complete random access to a file without requiring a seek. Memory-mapped files can also be shared among multiple processes.</maml:para>
+      <maml:para>A memory-mapped file can be associated with an optional name that allows the memory-mapped file to be shared with other processes.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>A name to assign to the memory-mapped file, or null for a MemoryMappedFile that you do not intend to share across processes.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="capacity">
+          <maml:name>Size</maml:name>
+          <maml:description>
+            <maml:para>The maximum size, in bytes, to allocate to the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="5" aliases="none">
+          <maml:name>CreateOrOpen</maml:name>
+          <maml:description>
+            <maml:para>Creates a new empty memory mapped file or opens an existing memory mapped file if one exists.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>A name to assign to the memory-mapped file, or null for a MemoryMappedFile that you do not intend to share across processes.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="capacity">
+          <maml:name>Size</maml:name>
+          <maml:description>
+            <maml:para>The maximum size, in bytes, to allocate to the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="access">
+          <maml:name>MemoryMappedFileAccess</maml:name>
+          <maml:description>
+            <maml:para>One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is ReadWrite.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">ReadWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Read</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Write</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">CopyOnWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadExecute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadWriteExecute</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFileAccess</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFileAccess</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="options">
+          <maml:name>MemoryMappedFileOptions</maml:name>
+          <maml:description>
+            <maml:para>A bitwise combination of enumeration values that specifies memory allocation options for the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">None</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DelayAllocatePages</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFileOptions</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFileOptions</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="4" aliases="inheritability">
+          <maml:name>HandleInheritability</maml:name>
+          <maml:description>
+            <maml:para>A value that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is None.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">None</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Inheritable</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">HandleInheritability</command:parameterValue>
+          <dev:type>
+            <maml:name>HandleInheritability</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="5" aliases="none">
+          <maml:name>CreateOrOpen</maml:name>
+          <maml:description>
+            <maml:para>Creates a new empty memory mapped file or opens an existing memory mapped file if one exists.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>A name to assign to the memory-mapped file, or null for a MemoryMappedFile that you do not intend to share across processes.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="capacity">
+          <maml:name>Size</maml:name>
+          <maml:description>
+            <maml:para>The maximum size, in bytes, to allocate to the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="access">
+          <maml:name>MemoryMappedFileAccess</maml:name>
+          <maml:description>
+            <maml:para>One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is ReadWrite.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">ReadWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Read</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Write</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">CopyOnWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadExecute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadWriteExecute</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFileAccess</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFileAccess</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="5" aliases="none">
+          <maml:name>CreateOrOpen</maml:name>
+          <maml:description>
+            <maml:para>Creates a new empty memory mapped file or opens an existing memory mapped file if one exists.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>The path to file to map.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mode">
+          <maml:name>FileMode</maml:name>
+          <maml:description>
+            <maml:para>Access mode; must be Open.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">CreateNew</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Create</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Open</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OpenOrCreate</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Truncate</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Append</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">FileMode</command:parameterValue>
+          <dev:type>
+            <maml:name>FileMode</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>A name to assign to the memory-mapped file, or null for a MemoryMappedFile that you do not intend to share across processes.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="capacity">
+          <maml:name>Size</maml:name>
+          <maml:description>
+            <maml:para>The maximum size, in bytes, to allocate to the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="access">
+          <maml:name>MemoryMappedFileAccess</maml:name>
+          <maml:description>
+            <maml:para>One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is ReadWrite.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">ReadWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Read</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Write</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">CopyOnWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadExecute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadWriteExecute</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFileAccess</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFileAccess</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>The path to file to map.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mode">
+          <maml:name>FileMode</maml:name>
+          <maml:description>
+            <maml:para>Access mode; must be Open.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">CreateNew</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Create</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Open</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OpenOrCreate</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Truncate</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Append</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">FileMode</command:parameterValue>
+          <dev:type>
+            <maml:name>FileMode</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>A name to assign to the memory-mapped file, or null for a MemoryMappedFile that you do not intend to share across processes.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="capacity">
+          <maml:name>Size</maml:name>
+          <maml:description>
+            <maml:para>The maximum size, in bytes, to allocate to the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>The path to file to map.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mode">
+          <maml:name>FileMode</maml:name>
+          <maml:description>
+            <maml:para>Access mode; must be Open.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">CreateNew</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Create</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Open</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OpenOrCreate</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Truncate</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Append</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">FileMode</command:parameterValue>
+          <dev:type>
+            <maml:name>FileMode</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>A name to assign to the memory-mapped file, or null for a MemoryMappedFile that you do not intend to share across processes.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>The path to file to map.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mode">
+          <maml:name>FileMode</maml:name>
+          <maml:description>
+            <maml:para>Access mode; must be Open.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">CreateNew</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Create</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Open</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OpenOrCreate</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Truncate</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Append</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">FileMode</command:parameterValue>
+          <dev:type>
+            <maml:name>FileMode</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>FileStream</maml:name>
+          <maml:description>
+            <maml:para>The file stream of the existing file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">FileStream</command:parameterValue>
+          <dev:type>
+            <maml:name>FileStream</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>A name to assign to the memory-mapped file, or null for a MemoryMappedFile that you do not intend to share across processes.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="capacity">
+          <maml:name>Size</maml:name>
+          <maml:description>
+            <maml:para>The maximum size, in bytes, to allocate to the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="access">
+          <maml:name>MemoryMappedFileAccess</maml:name>
+          <maml:description>
+            <maml:para>One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is ReadWrite.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">ReadWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Read</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Write</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">CopyOnWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadExecute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadWriteExecute</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFileAccess</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFileAccess</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="4" aliases="inheritability">
+          <maml:name>HandleInheritability</maml:name>
+          <maml:description>
+            <maml:para>A value that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is None.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">None</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Inheritable</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">HandleInheritability</command:parameterValue>
+          <dev:type>
+            <maml:name>HandleInheritability</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="5" aliases="none">
+          <maml:name>leaveOpen</maml:name>
+          <maml:description>
+            <maml:para>A value that indicates whether to close the source file stream when the MemoryMappedFile is disposed.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>The path to file to map.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="5" aliases="none">
+        <maml:name>CreateOrOpen</maml:name>
+        <maml:description>
+          <maml:para>Creates a new empty memory mapped file or opens an existing memory mapped file if one exists.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mode">
+        <maml:name>FileMode</maml:name>
+        <maml:description>
+          <maml:para>Access mode; must be Open.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">FileMode</command:parameterValue>
+        <dev:type>
+          <maml:name>FileMode</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>FileStream</maml:name>
+        <maml:description>
+          <maml:para>The file stream of the existing file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">FileStream</command:parameterValue>
+        <dev:type>
+          <maml:name>FileStream</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="4" aliases="inheritability">
+        <maml:name>HandleInheritability</maml:name>
+        <maml:description>
+          <maml:para>A value that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is None.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">HandleInheritability</command:parameterValue>
+        <dev:type>
+          <maml:name>HandleInheritability</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="5" aliases="none">
+        <maml:name>leaveOpen</maml:name>
+        <maml:description>
+          <maml:para>A value that indicates whether to close the source file stream when the MemoryMappedFile is disposed.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="access">
+        <maml:name>MemoryMappedFileAccess</maml:name>
+        <maml:description>
+          <maml:para>One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is ReadWrite.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MemoryMappedFileAccess</command:parameterValue>
+        <dev:type>
+          <maml:name>MemoryMappedFileAccess</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="options">
+        <maml:name>MemoryMappedFileOptions</maml:name>
+        <maml:description>
+          <maml:para>A bitwise combination of enumeration values that specifies memory allocation options for the memory-mapped file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MemoryMappedFileOptions</command:parameterValue>
+        <dev:type>
+          <maml:name>MemoryMappedFileOptions</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>A name to assign to the memory-mapped file, or null for a MemoryMappedFile that you do not intend to share across processes.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>The path to file to map.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="capacity">
+        <maml:name>Size</maml:name>
+        <maml:description>
+          <maml:para>The maximum size, in bytes, to allocate to the memory-mapped file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="benannt" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.FileStream</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.FileMode</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Int64</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.MemoryMappedFiles.MemoryMappedFileAccess</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.MemoryMappedFiles.MemoryMappedFileOptions</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.HandleInheritability</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Boolean</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.IO.MemoryMappedFiles.MemoryMappedFile</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>---- Example 1: Create a new memory-mapped file. (Default) ----</maml:title>
+        <dev:code>PS C:\&gt; New-MemoryMappedFile -Name "Test" -Size 1024
+
+SafeMemoryMappedFileHandle
+--------------------------
+Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle</dev:code>
+        <dev:remarks>
+          <maml:para>This command creates a memory-mapped file that has the specified capacity in system memory.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>--------- EXAMPLE 2: Create a new memory-mapped file. ---------</maml:title>
+        <dev:code>PS C:\&gt; New-MemoryMappedFile -Name "Test" -Size 1024 -MemoryMappedFileAccess ReadWriteExecute
+
+SafeMemoryMappedFileHandle
+--------------------------
+Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle</dev:code>
+        <dev:remarks>
+          <maml:para>This command creates a memory-mapped file that has the specified capacity and access type in system memory.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Open-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Out-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Read-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Save-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Open-MemoryMappedFile</command:name>
+      <command:verb>Open</command:verb>
+      <command:noun>MemoryMappedFile</command:noun>
+      <maml:description>
+        <maml:para>Opens an existing named memory-mapped file in system memory.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Opens an existing memory-mapped file that has the specified name, access rights, and inheritability in system memory.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Open-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>The name of the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="desiredAccessRights">
+          <maml:name>MemoryMappedFileRights</maml:name>
+          <maml:description>
+            <maml:para>One of the enumeration values that specifies the access rights to apply to the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">CopyOnWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Write</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Read</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Execute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadExecute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadWriteExecute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Delete</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadPermissions</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ChangePermissions</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TakeOwnership</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">FullControl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">AccessSystemSecurity</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFileRights</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFileRights</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="inheritability">
+          <maml:name>HandleInheritability</maml:name>
+          <maml:description>
+            <maml:para>One of the enumeration values that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is None.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">None</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Inheritable</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">HandleInheritability</command:parameterValue>
+          <dev:type>
+            <maml:name>HandleInheritability</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Open-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>The name of the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="desiredAccessRights">
+          <maml:name>MemoryMappedFileRights</maml:name>
+          <maml:description>
+            <maml:para>One of the enumeration values that specifies the access rights to apply to the memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">CopyOnWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Write</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Read</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadWrite</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Execute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadExecute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadWriteExecute</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Delete</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadPermissions</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ChangePermissions</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TakeOwnership</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">FullControl</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">AccessSystemSecurity</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFileRights</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFileRights</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="inheritability">
+        <maml:name>HandleInheritability</maml:name>
+        <maml:description>
+          <maml:para>One of the enumeration values that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is None.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">HandleInheritability</command:parameterValue>
+        <dev:type>
+          <maml:name>HandleInheritability</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="desiredAccessRights">
+        <maml:name>MemoryMappedFileRights</maml:name>
+        <maml:description>
+          <maml:para>One of the enumeration values that specifies the access rights to apply to the memory-mapped file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MemoryMappedFileRights</command:parameterValue>
+        <dev:type>
+          <maml:name>MemoryMappedFileRights</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="mapName">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>The name of the memory-mapped file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.MemoryMappedFiles.MemoryMappedFileRights</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.HandleInheritability</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.IO.MemoryMappedFiles.MemoryMappedFile</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>EXAMPLE 1: Opens an existing memory-mapped file that has the specified name in system memory.</maml:title>
+        <dev:code>PS C:\&gt; Open-MemoryMappedFile -Name "Test"
+
+SafeMemoryMappedFileHandle
+--------------------------
+Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle</dev:code>
+        <dev:remarks>
+          <maml:para>The following example opens a memory-mapped file named `Test` that has already been created.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>EXAMPLE 2: Opens an existing memory-mapped file that has the specified name and access rights in system memory.</maml:title>
+        <dev:code>PS C:\&gt; Open-MemoryMappedFile -Name "Test" -MemoryMappedFileRights FullControl
+
+SafeMemoryMappedFileHandle
+--------------------------
+Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle</dev:code>
+        <dev:remarks>
+          <maml:para>The following example opens a memory-mapped file named `Test` that has already been created.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>EXAMPLE 3: Opens an existing memory-mapped file that has the specified name, access rights, and inheritability in system memory.</maml:title>
+        <dev:code>PS C:\&gt; Open-MemoryMappedFile -Name "Test" -MemoryMappedFileRights FullControl -HandleInheritability Inheritable
+
+SafeMemoryMappedFileHandle
+--------------------------
+Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle</dev:code>
+        <dev:remarks>
+          <maml:para>The following example opens a memory-mapped file named `Test` that has already been created.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Out-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Read-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Save-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Out-MemoryMappedFile</command:name>
+      <command:verb>Out</command:verb>
+      <command:noun>MemoryMappedFile</command:noun>
+      <maml:description>
+        <maml:para>Writes data to the MemoryMappedFile.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Out-MemoryMappedFile function retrieves a MemoryMappedViewStream of a memory mapped file and writes a value to the stream for interprocess communication.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Out-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+          <maml:name>MemoryMappedFile</maml:name>
+          <maml:description>
+            <maml:para>Represents a memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFile</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFile</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="value">
+          <maml:name>String</maml:name>
+          <maml:description>
+            <maml:para>The string to write to the stream.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="none">
+          <maml:name>Append</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether to add content to the end of a resource. Otherwise, the content is replaced with the value.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="none">
+        <maml:name>Append</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether to add content to the end of a resource. Otherwise, the content is replaced with the value.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+        <maml:name>MemoryMappedFile</maml:name>
+        <maml:description>
+          <maml:para>Represents a memory-mapped file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MemoryMappedFile</command:parameterValue>
+        <dev:type>
+          <maml:name>MemoryMappedFile</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="value">
+        <maml:name>String</maml:name>
+        <maml:description>
+          <maml:para>The string to write to the stream.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.MemoryMappedFiles.MemoryMappedFile</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>---------- EXAMPLE 1: Write in to memory-mapped file. ----------</maml:title>
+        <dev:code>PS C:\&gt; Out-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile -String "Hello World!"</dev:code>
+        <dev:remarks>
+          <maml:para>The following example obtains a MemoryMappedViewStream of a memory-mapped file and writes a value to the stream for inter-process communication.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Open-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Read-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Save-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Read-MemoryMappedFile</command:name>
+      <command:verb>Read</command:verb>
+      <command:noun>MemoryMappedFile</command:noun>
+      <maml:description>
+        <maml:para>Read data from the MemoryMappedFile.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Read-MemoryMappedFile function retrieves a MemoryMappedViewStream of a memory mapped file and reads the value from the stream for interprocess communication.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Read-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+          <maml:name>MemoryMappedFile</maml:name>
+          <maml:description>
+            <maml:para>Represents a memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFile</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFile</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+        <maml:name>MemoryMappedFile</maml:name>
+        <maml:description>
+          <maml:para>Represents a memory-mapped file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MemoryMappedFile</command:parameterValue>
+        <dev:type>
+          <maml:name>MemoryMappedFile</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.MemoryMappedFiles.MemoryMappedFile</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>--------- EXAMPLE 1: Read a memory mapped file stream. ---------</maml:title>
+        <dev:code>PS C:\&gt; Read-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
+
+Hello World!</dev:code>
+        <dev:remarks>
+          <maml:para>The following example obtains a MemoryMappedViewStream of a memory-mapped file and read the value from the stream for inter-process communication.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Open-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Out-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Save-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-MemoryMappedFile</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>MemoryMappedFile</command:noun>
+      <maml:description>
+        <maml:para>Releases the resources used by the MemoryMappedFile.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-MemoryMappedFile function releases the resources used by the MemoryMappedFile.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+          <maml:name>MemoryMappedFile</maml:name>
+          <maml:description>
+            <maml:para>Represents a memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFile</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFile</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+        <maml:name>MemoryMappedFile</maml:name>
+        <maml:description>
+          <maml:para>Represents a memory-mapped file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MemoryMappedFile</command:parameterValue>
+        <dev:type>
+          <maml:name>MemoryMappedFile</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.MemoryMappedFiles.MemoryMappedFile</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>EXAMPLE 1: Releases all resources used by the MemoryMappedFile</maml:title>
+        <dev:code>PS C:\&gt; Remove-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile</dev:code>
+        <dev:remarks>
+          <maml:para>Releases all resources used by the MemoryMappedFile.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Open-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Out-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Read-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Save-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Save-MemoryMappedFile</command:name>
+      <command:verb>Save</command:verb>
+      <command:noun>MemoryMappedFile</command:noun>
+      <maml:description>
+        <maml:para>Saves the MemoryMappedFile to a specified path.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Save-MemoryMappedFile function saves the MemoryMappedFile to a specified path.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Save-MemoryMappedFile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+          <maml:name>MemoryMappedFile</maml:name>
+          <maml:description>
+            <maml:para>Represents a memory-mapped file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">MemoryMappedFile</command:parameterValue>
+          <dev:type>
+            <maml:name>MemoryMappedFile</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="none">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>Represents a path.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
+        <maml:name>MemoryMappedFile</maml:name>
+        <maml:description>
+          <maml:para>Represents a memory-mapped file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MemoryMappedFile</command:parameterValue>
+        <dev:type>
+          <maml:name>MemoryMappedFile</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="none">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>Represents a path.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.IO.MemoryMappedFiles.MemoryMappedFile</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>------- Example 1: Export a memory mapped fiel to disk. -------</maml:title>
+        <dev:code>PS C:\&gt; Save-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile -Path "C:\test.dat"</dev:code>
+        <dev:remarks>
+          <maml:para>The following example retrieves a MemoryMappedViewStream from a memory mapped file and writes the value from the stream to a file.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/lmissel/System.IO.MemoryMappedFiles.Commands/</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Open-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Out-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Read-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-MemoryMappedFile</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>

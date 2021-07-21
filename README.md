@@ -89,6 +89,7 @@ Hello World!
 |1.0.0.0|done|Initial module|
 |1.0.0.1|done|Small bug fix|
 |1.1.0.0|done|New structure and division of the module and functions, multilingualism, bug fixes as well as enhancements.|
+|1.1.1.0|done|Contains improvements and bug fixes.|
 
 >[!Important]
 >Some functions may have been renamed or given additional functionality. Please check your scripts for functionality and correct them if necessary.
