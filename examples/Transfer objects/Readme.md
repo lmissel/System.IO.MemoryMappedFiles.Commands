@@ -18,25 +18,6 @@ To run this example, do the following:
 
 - Return to Process A and press ENTER.
 
-````Output
-BasePriority               : 8
-ExitCode                   : 
-HasExited                  : False
-ExitTime                   : 
-Handle                     : 3256
-SafeHandle                 : @{IsInvalid=False; IsClosed=False}
-HandleCount                : 784
-Id                         : 4820
-MachineName                : .
-MainWindowHandle           : 0
-MainWindowTitle            : 
-MainModule                 : @{ModuleName=PowerShell_ISE.exe; FileName=C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe; BaseAddress=2174928879616; 
-                             ModuleMemorySize=229376; EntryPointAddress=0; FileVersionInfo=; Site=; Container=}
-MaxWorkingSet              : 1413120
-MinWorkingSet              : 204800
-...
-````
-
 ### Process A
 
 ````PowerShell
@@ -76,6 +57,23 @@ Write-Output $Object
 # Releases all resources used by the MemoryMappedFile.
 Remove-MemoryMappedFile -MemoryMappedFile $MemoryMappedFile
 ````
-
+````Output
+BasePriority               : 8
+ExitCode                   : 
+HasExited                  : False
+ExitTime                   : 
+Handle                     : 3256
+SafeHandle                 : @{IsInvalid=False; IsClosed=False}
+HandleCount                : 784
+Id                         : 4820
+MachineName                : .
+MainWindowHandle           : 0
+MainWindowTitle            : 
+MainModule                 : @{ModuleName=PowerShell_ISE.exe; FileName=C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe; BaseAddress=2174928879616; 
+                             ModuleMemorySize=229376; EntryPointAddress=0; FileVersionInfo=; Site=; Container=}
+MaxWorkingSet              : 1413120
+MinWorkingSet              : 204800
+...
+````
 ## Remarks
 Use this method to create a memory-mapped file that is not persisted (that is, not associated with a file on disk), which you can use to share data between processes.
